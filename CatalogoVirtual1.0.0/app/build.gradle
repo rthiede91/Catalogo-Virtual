@@ -17,6 +17,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //Blibioteca para utilizar na comunicação http com php no servidor ftp
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
