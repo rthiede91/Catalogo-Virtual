@@ -5,10 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import br.thiede.roberto.catalogovirtual100.configs.standardVars;
 import br.thiede.roberto.catalogovirtual100.models.product;
 
 
@@ -18,57 +20,24 @@ import br.thiede.roberto.catalogovirtual100.models.product;
 
 public class checkupDatabase extends SQLiteOpenHelper
 {
-
-    private static final String DBName = "catalogs";
-    private static final int DBVersion = 100;
+    standardVars stdVars = new standardVars();
 
     public checkupDatabase(Context context)
     {
-        super(context, DBName, null, DBVersion);
+        super(context, standardVars.databaseName, null, standardVars.databaseVersion);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        String sqlQuery = "CREATE TABLE business(" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP," +
-                "name varchar(100) NOT NULL," +
-                "price int(10) NOT NULL," +
-                "description text NOT NULL," +
-                "images text NOT NULL," +
-                "category varchar(150) NOT NULL," +
-                "sub_category varchar(150) NOT NULL," +
-                "ref varchar(50) DEFAULT NULL" +
-                ")";
-        db.execSQL(sqlQuery);
 
-        sqlQuery = "CREATE TABLE categories(" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP," +
-                "name varchar(100) NOT NULL," +
-                "price int(10) NOT NULL," +
-                "description text NOT NULL," +
-                "images text NOT NULL," +
-                "category varchar(150) NOT NULL," +
-                "sub_category varchar(150) NOT NULL," +
-                "ref varchar(50) DEFAULT NULL" +
-                ")";
-        db.execSQL(sqlQuery);
-
-        sqlQuery = "CREATE TABLE products(" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP," +
-                "name varchar(100) NOT NULL," +
-                "price int(10) NOT NULL," +
-                "description text NOT NULL," +
-                "images text NOT NULL," +
-                "category varchar(150) NOT NULL," +
-                "sub_category varchar(150) NOT NULL," +
-                "ref varchar(50) DEFAULT NULL" +
-                ")";
-        db.execSQL(sqlQuery);
-
+        for (int a =0; a<stdVars.databaseTables.length; a++)
+        {
+            for(int b=0; b<stdVars.databaseTables[a].length; b++)
+            {
+                Log.d("CeckDB", "Table: " + stdVars.databaseTables[a][b]);
+            }
+        }
 
     }
 

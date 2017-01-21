@@ -21,7 +21,12 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class imageDownload extends AsyncTask<String, String, String> {
+import br.thiede.roberto.catalogovirtual100.configs.standardVars;
+
+public class imageDownload extends AsyncTask<String, String, String>
+{
+
+    standardVars stdVars = new standardVars();
 
     private Context context;
     private ProgressDialog pDialog;
@@ -61,12 +66,11 @@ public class imageDownload extends AsyncTask<String, String, String> {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = Config.RGB_565;
 
-            String path = ImageUrl.getPath();
-            String idStr = path.substring(path.lastIndexOf('/') + 1);
-            File filepath = Environment.getExternalStorageDirectory();
-            File dir = new File(filepath.getAbsolutePath()
-                    + "/akmos100/");
-            dir.mkdirs();
+            String httpPath = ImageUrl.getPath();
+            String idStr = httpPath.substring(httpPath.lastIndexOf('/') + 1);
+
+            File dir = new File(stdVars.imagesPath);
+
             String fileName = idStr;
             File file = new File(dir, fileName);
             FileOutputStream fos = new FileOutputStream(file);
@@ -81,13 +85,13 @@ public class imageDownload extends AsyncTask<String, String, String> {
 
             bmImg = BitmapFactory.decodeStream(is, null, options);
 
-            bmImg.compress(CompressFormat.JPEG, 50, fos);
+            bmImg.compress(CompressFormat.JPEG, stdVars.imagesQuality, fos);
             fos.flush();
             fos.close();
 
             MediaScannerConnection.scanFile(context,
                     new String[] { imageFile.getPath() },
-                    new String[] { "image/jpeg" }, null);
+                    new String[] { stdVars.imagesType }, null);
 
         }
         catch (Exception e)

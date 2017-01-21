@@ -16,27 +16,32 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import br.thiede.roberto.catalogovirtual100.configs.standardVars;
+
 public class updateDatabase extends AsyncTask
 {
+    standardVars stdVars = new standardVars();
     @Override
     protected Object doInBackground(Object... params)
     {
         Log.d("app-log-php", "Start Script (Variables)");
-        String link = "http://octaltech.com.br/akmos100/php/select.php";
+        String updateLink = stdVars.urlPhpUpdateDB;
+        String upgradeLink = stdVars.urlPhpUpgradeDB;
 
         try
         {
             Log.d("app-log-php", "Start Connection (Variables)");
-            URL url = new URL(link);
+            URL url = new URL(updateLink);
             HttpClient client = new DefaultHttpClient();
             HttpGet request = new HttpGet();
-            request.setURI(new URI(link));
+            request.setURI(new URI(updateLink));
             HttpResponse response = client.execute(request);
             BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
             StringBuffer sb = new StringBuffer("");
             String line="";
             Log.d("app-log-php", "Get Values (php return)");
             Log.d("app-log-php", "----------------------------------");
+
             int pos =0;
             while ((line = in.readLine()) != null)
             {
@@ -46,6 +51,7 @@ public class updateDatabase extends AsyncTask
             }
             Log.d("app-log-php", "----------------------------------");
             in.close();
+
            return new String(sb.toString());
 
         }

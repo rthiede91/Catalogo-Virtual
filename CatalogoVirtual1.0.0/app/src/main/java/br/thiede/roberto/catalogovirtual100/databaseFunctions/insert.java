@@ -13,12 +13,12 @@ import br.thiede.roberto.catalogovirtual100.models.product;
  * Created by thiedes on 21/01/17.
  */
 
-public class inserts extends SQLiteOpenHelper
+public class insert extends SQLiteOpenHelper
 {
     private static final String DBName = "catalogs";
     private static final int DBVersion = 100;
 
-    public inserts(Context context)
+    public insert(Context context)
     {
         super(context, DBName, null, DBVersion);
     }
