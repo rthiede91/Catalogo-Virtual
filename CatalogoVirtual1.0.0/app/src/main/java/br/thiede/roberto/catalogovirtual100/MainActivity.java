@@ -12,4 +12,18 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    public void showBusiness()
+    {
+
+    }
+    public void showCategories(String businessId)
+    {
+
+    }
+    public void showProducts(String businessId, String categoriId)
+    {
+
+    }
+
 }
