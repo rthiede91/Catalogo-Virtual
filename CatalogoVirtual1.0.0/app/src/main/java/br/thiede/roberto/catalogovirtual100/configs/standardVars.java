@@ -27,17 +27,19 @@ public class standardVars
     public static final  String databaseName = "catalogovirtual";
     public static final  int databaseVersion = 100;
 
-    public static final  String[][] databaseTables = {
+    public static final int businessTable = 0;
+    public static final int categoryTable = 1;
+    public static final int productTable = 2;
+    public static final String[][] databaseTables = {
             {
                     "business(",
                     "id INTEGER PRIMARY KEY AUTOINCREMENT,",
                     "date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,",
                     "name varchar(100) NOT NULL,",
-                    "price int(10) NOT NULL,",
                     "description text NOT NULL,",
                     "images text NOT NULL,",
+                    "keywords text NOT NULL,",
                     "category varchar(150) NOT NULL,",
-                    "sub_category varchar(150) NOT NULL,",
                     "ref varchar(50) DEFAULT NULL",
                     ")"
             },
@@ -46,11 +48,10 @@ public class standardVars
                     "id INTEGER PRIMARY KEY AUTOINCREMENT,",
                     "date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,",
                     "name varchar(100) NOT NULL,",
-                    "price int(10) NOT NULL,",
                     "description text NOT NULL,",
                     "images text NOT NULL,",
+                    "business_id text NOT NULL,",
                     "category varchar(150) NOT NULL,",
-                    "sub_category varchar(150) NOT NULL,",
                     "ref varchar(50) DEFAULT NULL",
                     ")"
             },
@@ -62,8 +63,9 @@ public class standardVars
                     "price int(10) NOT NULL,",
                     "description text NOT NULL,",
                     "images text NOT NULL,",
-                    "category varchar(150) NOT NULL,",
-                    "sub_category varchar(150) NOT NULL,",
+                    "category_id varchar(15) NOT NULL,",
+                    "business_id varchar(15) NOT NULL,",
+                    "keywords text NOT NULL,",
                     "ref varchar(50) DEFAULT NULL",
                     ")"
             },

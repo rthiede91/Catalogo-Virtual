@@ -9,26 +9,24 @@ public class business
     private int id;
     private String date;
     private String name;
-    private String price;
     private String description;
     private String images;
+    private String keywords;
     private String category;
-    private String sub_category;
     private String ref;
 
     public business(){};
 
-    public business(int id, String date, String name, String price, String description, String images,
-                    String category, String sub_category, String ref)
+    public business(int id, String date, String name, String description, String images,
+                    String keywords, String category, String ref)
     {
         this.id = id;
         this.date = date;
         this.name = name;
-        this.price = price;
         this.description = description;
         this.images = images;
+        this.keywords = keywords;
         this.category = category;
-        this.sub_category = sub_category;
         this.ref = ref;
     }
 
@@ -56,14 +54,6 @@ public class business
         this.name = name;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -80,20 +70,20 @@ public class business
         this.images = images;
     }
 
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
+
     public String getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getSub_category() {
-        return sub_category;
-    }
-
-    public void setSub_category(String sub_category) {
-        this.sub_category = sub_category;
+    public void setCategory(String ategory) {
+        this.category = ategory;
     }
 
     public String getRef() {
@@ -106,7 +96,7 @@ public class business
 
     public String toString()
     {
-        return "id=" + id + " date=" + date +" name=" + name + " price=" + price;
+        return "id=" + id + " date=" + date +" name=" + name + " price=";
     }
 
 }

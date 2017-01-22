@@ -31,11 +31,13 @@ public class checkupDatabase extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
 
+        standardVars stdVars = new standardVars();
         for (int a =0; a<stdVars.databaseTables.length; a++)
         {
+            Log.d("CHECKDB", "CREATE TABLE ");
             for(int b=0; b<stdVars.databaseTables[a].length; b++)
             {
-                Log.d("CeckDB", "Table: " + stdVars.databaseTables[a][b]);
+                Log.d("CHECKDB", " " + stdVars.databaseTables[a][b]);
             }
         }
 
@@ -55,47 +57,15 @@ public class checkupDatabase extends SQLiteOpenHelper
             content.put("price", prouct.getPrice());
             content.put("description", prouct.getDescription());
             content.put("images", prouct.getImages());
-            content.put("category", prouct.getCategory());
-            content.put("sub_category", prouct.getSub_category());
+            content.put("category", prouct.getCategory_id());
+            content.put("sub_category", prouct.getBusiness_id());
+            content.put("sub_category", prouct.getKeywords());
             content.put("ref", prouct.getRef());
 
-        db.insert("catalog",null, content);
+        db.insert(stdVars.databaseTables[stdVars.productTable][0],null, content);
         db.close();
     }
 
-    public List<product> selectAll()
-    {
-        List<product> products = new ArrayList<product>();
 
-        SQLiteDatabase db = getWritableDatabase();
-
-        String sqlQuery = "SELECT * FROM catalog";
-
-        Cursor cursor = db.rawQuery(sqlQuery, null);
-
-        if(cursor.moveToFirst())
-        {
-            product thisProduct = new product();
-            do
-            {
-                thisProduct.setId(cursor.getInt(0));
-                thisProduct.setDate(cursor.getString(1));
-                thisProduct.setName(cursor.getString(2));
-                thisProduct.setPrice(cursor.getString(3));
-                thisProduct.setDescription(cursor.getString(4));
-                thisProduct.setImages(cursor.getString(5));
-                thisProduct.setCategory(cursor.getString(6));
-                thisProduct.setSub_category(cursor.getString(7));
-                thisProduct.setRef(cursor.getString(8));
-
-                products.add(thisProduct);
-            }
-            while(cursor.moveToNext());
-
-        }
-
-        return products;
-
-    }
 
 }

@@ -9,26 +9,24 @@ public class category
     private int id;
     private String date;
     private String name;
-    private String price;
     private String description;
     private String images;
+    private String business_id;
     private String category;
-    private String sub_category;
     private String ref;
 
     public category(){};
 
-    public category(int id, String date, String name, String price, String description, String images,
-                    String category, String sub_category, String ref)
+    public category(int id, String date, String name, String description, String images,
+                    String business_id, String category, String ref)
     {
         this.id = id;
         this.date = date;
         this.name = name;
-        this.price = price;
         this.description = description;
         this.images = images;
+        this.business_id = business_id;
         this.category = category;
-        this.sub_category = sub_category;
         this.ref = ref;
     }
 
@@ -56,14 +54,6 @@ public class category
         this.name = name;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -80,20 +70,20 @@ public class category
         this.images = images;
     }
 
+    public String getBusiness_id() {
+        return business_id;
+    }
+
+    public void setBusiness_id(String business_id) {
+        this.business_id = business_id;
+    }
+
     public String getCategory() {
         return category;
     }
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    public String getSub_category() {
-        return sub_category;
-    }
-
-    public void setSub_category(String sub_category) {
-        this.sub_category = sub_category;
     }
 
     public String getRef() {
@@ -106,7 +96,7 @@ public class category
 
     public String toString()
     {
-        return "id=" + id + " date=" + date +" name=" + name + " price=" + price;
+        return "id=" + id + " date=" + date +" name=" + name ;
     }
 
 }
