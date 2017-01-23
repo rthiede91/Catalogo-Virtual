@@ -8,16 +8,21 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
-import br.thiede.roberto.catalogovirtual100.configs.standardVars;
+import br.thiede.roberto.catalogovirtual100.configs.checkupApp;
 
 public class MainActivity extends Activity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Log.d("CheckupApp", "Verificando aplicativo.");
+            checkupApp checkApp = new checkupApp(this);
+                checkApp.imagesPath();
+                checkApp.database();
+        Log.d("CheckupApp", "Fim da verificação.");
 
     }
 
