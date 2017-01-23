@@ -12,14 +12,15 @@ public class product
     private String price;
     private String description;
     private String images;
-    private String category;
-    private String sub_category;
+    private String category_id;
+    private String business_id;
+    private String keywords;
     private String ref;
 
     public product(){};
 
     public product(int id, String date, String name, String price, String description, String images,
-                   String category, String sub_category, String ref)
+                   String category_id, String business_id, String keywords, String ref)
     {
         this.id = id;
         this.date = date;
@@ -27,8 +28,9 @@ public class product
         this.price = price;
         this.description = description;
         this.images = images;
-        this.category = category;
-        this.sub_category = sub_category;
+        this.category_id = category_id;
+        this.business_id = business_id;
+        this.keywords = keywords;
         this.ref = ref;
     }
 
@@ -80,20 +82,28 @@ public class product
         this.images = images;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategory_id() {
+        return category_id;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategory_id(String category_id) {
+        this.category_id = category_id;
     }
 
-    public String getSub_category() {
-        return sub_category;
+    public String getBusiness_id() {
+        return business_id;
     }
 
-    public void setSub_category(String sub_category) {
-        this.sub_category = sub_category;
+    public void setBusiness_id(String business_id) {
+        this.business_id = business_id;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.ref = keywords;
     }
 
     public String getRef() {
