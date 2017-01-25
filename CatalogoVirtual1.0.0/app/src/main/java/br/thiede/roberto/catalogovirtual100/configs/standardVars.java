@@ -40,7 +40,7 @@ public class standardVars
                     "images text NOT NULL,",
                     "keywords text NOT NULL,",
                     "category varchar(150) NOT NULL,",
-                    "ref varchar(50) DEFAULT NULL",
+                    "ref varchar(50)",
                     ")"
             },
             {
@@ -52,7 +52,7 @@ public class standardVars
                     "images text NOT NULL,",
                     "business_id text NOT NULL,",
                     "category varchar(150) NOT NULL,",
-                    "ref varchar(50) DEFAULT NULL",
+                    "ref varchar(50)",
                     ")"
             },
             {
@@ -66,7 +66,7 @@ public class standardVars
                     "category_id varchar(15) NOT NULL,",
                     "business_id varchar(15) NOT NULL,",
                     "keywords text NOT NULL,",
-                    "ref varchar(50) DEFAULT NULL",
+                    "ref varchar(50)",
                     ")"
             },
     };
