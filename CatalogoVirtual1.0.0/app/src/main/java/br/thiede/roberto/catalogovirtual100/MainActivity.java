@@ -18,11 +18,20 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("CheckupApp", "Verificando aplicativo.");
+        Log.d("APPLOG-CheckupApp", "Verificando aplicativo.");
             checkupApp checkApp = new checkupApp(this);
                 checkApp.imagesPath();
                 checkApp.database();
-        Log.d("CheckupApp", "Fim da verificação.");
+        Log.d("APPLOG-CheckupApp", "Fim da verificação.");
+
+        Log.d("APPLOG-Update", "Iniciando atualização");
+        Log.d("APPLOG-Update", "Fim da atualização");
+
+        Log.d("APPLOG-Banner", "Carregando banner");
+        Log.d("APPLOG-Banner", "Fim do Carregamento");
+
+        Log.d("APPLOG-Load", "Carregando empresas");
+        Log.d("APPLOG-Load", "Fim do Carregamento");
 
     }
 
